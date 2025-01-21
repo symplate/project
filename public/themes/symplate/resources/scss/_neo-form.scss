@@ -1,0 +1,122 @@
+.neo-form {
+
+  position: relative;
+  z-index: 1;
+
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="datetime"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="email"],
+  input[type="color"],
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  textarea,
+  select {
+
+    font-size: $input-font-size;
+
+    @include media-breakpoint-down(wp-mobile) {
+      font-size: $input-font-size-mobile;
+    }
+
+    &:focus,
+    &:focus-visible {
+      border-color: $input-focus-border-color;
+      box-shadow: $input-focus-box-shadow;
+      outline: $input-focus-outline;
+    }
+  }
+
+  textarea {
+    min-height: $textarea-min-height;
+
+    @include media-breakpoint-down(wp-mobile) {
+      min-height: $textarea-min-height-mobile;
+    }
+  }
+
+  select {
+    display: block;
+    appearance: none;
+    min-height: $form-select-min-height;
+    max-width: $form-select-max-width;
+    padding: $form-select-padding !important;
+    vertical-align: middle;
+    cursor: $form-select-cursor;
+    color: $form-select-color;
+    font-size: $form-select-font-size;
+    line-height: $form-select-line-height;
+    background-color: $form-select-bg-color;
+    background-image: $form-select-bg-url;
+    background-repeat: $form-select-bg-repeat;
+    background-position: $form-select-bg-position;
+    background-size: $form-select-bg-size;
+    border: $form-select-border-width solid $form-select-border-color;
+    box-shadow: $form-select-box-shadow;
+    @include border-radius($form-select-border-radius);
+
+    @include media-breakpoint-down(wp-mobile) {
+      width: 100%;
+      max-width: none;
+      min-height: $form-select-min-height-mobile;
+      box-sizing: border-box;
+      padding: $form-select-padding-mobile !important;
+      font-size: $form-select-font-size-mobile;
+      line-height: $form-select-line-height-mobile;
+    }
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: $form-check-width-mobile;
+    min-width: $form-check-width-mobile;
+    height: $form-check-height-mobile;
+    line-height: $form-check-line-height;
+    cursor: $form-check-cursor;
+    background-color: $form-check-bg-color;
+    border: $form-check-border-width solid $form-check-border-color;
+    box-shadow: $form-check-box-shadow;
+    @include transition($form-check-transition);
+    @include border-radius($form-check-input-border-radius);
+
+    @include media-breakpoint-up(wp-mobile) {
+      width: $form-check-width;
+      min-width: $form-check-width;
+      height: $form-check-height;
+    }
+  }
+
+  input[type="checkbox"] {
+    margin: $form-check-input-margins-mobile;
+
+    &:checked::before {
+      content: $form-check-input-bg-url;
+    }
+
+    @include media-breakpoint-up(wp-mobile) {
+      margin: $form-check-input-margins;
+    }
+  }
+
+  input[type="radio"] {
+    margin: $form-check-radio-margins-mobile;
+    border-radius: $form-check-radio-border-radius;
+
+    &::before {
+      background-color: $form-check-radio-bg;
+    }
+
+    @include media-breakpoint-up(wp-mobile) {
+      margin: $form-check-radio-margins;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import "../../config";
+
+// assign default value to all undefined variables
+
+$scheme-name: "neo";
+
+// core variables
+
+$text-color: $white;
+$base-color: $dark;
+$icon-color: $text-color;
+$highlight-color: $primary;
+$notification-color: #f03446;
+
+$body-background: $body-bg;
+
+$link: $link-color;
+$link-focus: $link-hover-color;
+
+$button-color: $primary;
+$button-text-color: $text-color;
+
+$form-checked: $primary;
+
+// admin menu & admin-bar
+
+$menu-text: $text-color;
+$menu-icon: $icon-color;
+$menu-background: $base-color;
+
+$menu-highlight-text: $text-color;
+$menu-highlight-icon: $text-color;
+$menu-highlight-background: tint-color($base-color, 5%);
+
+$menu-current-text: $white;
+$menu-current-icon: $menu-highlight-icon;
+$menu-current-background: $primary;
+
+$menu-submenu-text: mix($base-color, $text-color, 30%);
+// $menu-submenu-background: lighten($base-color, 7%);
+$menu-submenu-background: lighten($base-color, 3%);
+$menu-submenu-background-alt: desaturate(lighten($menu-background, 7%), 7%);
+
+// $menu-submenu-focus-text: $highlight-color;
+$menu-submenu-focus-text: $menu-current-text;
+$menu-submenu-current-text: $text-color;
+
+$menu-bubble-text: $text-color;
+$menu-bubble-background: $notification-color;
+$menu-bubble-current-text: $text-color;
+$menu-bubble-current-background: $menu-submenu-background;
+
+$menu-collapse-text: $menu-icon;
+$menu-collapse-icon: $menu-icon;
+$menu-collapse-focus-text: $text-color;
+$menu-collapse-focus-icon: $menu-highlight-icon;
+
+$adminbar-avatar-frame: lighten( $menu-background, 7% );
+$adminbar-input-background: lighten( $menu-background, 7% );
+
+$adminbar-recovery-exit-text: $menu-bubble-text;
+$adminbar-recovery-exit-background: $menu-bubble-background;
+$adminbar-recovery-exit-background-alt: mix(black, $adminbar-recovery-exit-background, 10%);
+
+$menu-customizer-text: mix( $base-color, $text-color, 40% );
+
+// Dashboard Colors
+
+$custom-welcome-panel: "true";
+$dashboard-accent-1: $menu-submenu-background;
+$dashboard-accent-2: $menu-background;
+$dashboard-icon-background: $dashboard-accent-2;
+
+$low-contrast-theme: "false";
+
+@import "../_admin.scss";

@@ -1,0 +1,70 @@
+html {
+  --wp-admin--admin-bar--height: #{$toolbar-height-mobile};
+
+  @include media-breakpoint-up(wp-mobile) {
+    --wp-admin--admin-bar--height: #{$toolbar-height};
+  }
+}
+
+html.wp-toolbar {
+  padding-top: $toolbar-height-mobile;
+
+  @include media-breakpoint-up(wp-mobile) {
+    padding-top: $toolbar-height;
+  }
+
+  @include media-breakpoint-down(wp-mobile) {
+    #wpbody {
+      padding-top: 0;
+    }
+  }
+}
+
+
+// 
+// WP Admin Bar
+
+#wpadminbar {
+  display: none !important;
+}
+
+
+// 
+// WP Admin Menu
+
+#adminmenu {
+
+  a {
+    color: rgba($white, .6);
+  }
+
+  a.menu-top:not(:hover):not(.wp-has-current-submenu):not(.current) {
+    .wp-menu-image {
+      opacity: .5;
+    }
+  }
+
+  div.wp-menu-image.svg {
+    background-size: 16px auto;
+  }
+
+  .dashicons-before::before {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+  }
+
+  #collapse-button {
+    transition: none !important;
+    color: rgba($white, .6);
+
+    &:focus,
+    &:hover {
+      color: $white;
+    }
+
+    .collapse-button-label {
+      top: 7px;
+    }
+   }
+}

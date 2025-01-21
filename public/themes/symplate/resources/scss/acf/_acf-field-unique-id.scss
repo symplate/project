@@ -1,0 +1,58 @@
+.acf-field.acf-field-unique-id {
+  .acf-label label {
+    cursor: default;
+  }
+
+  field-unique-id,
+  .field-unique-id {
+    display: inline-flex;
+    align-items: center;
+    padding: .375rem .5rem;
+    background-color: $light;
+    border: .0625rem solid $border-color;
+    @include border-radius();
+  }
+
+  .field-unique-id__value {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    font-family: $font-family-code;
+    white-space: nowrap;
+    line-height: 1;
+
+    button {
+      margin: 0;
+      padding: 0;
+      min-width: unset;
+      min-height: unset;
+      color: $body-color;
+      opacity: .7;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      .icon {
+        display: inline-flex;
+      }
+    }
+  }
+
+  .field-unique-id__pending {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 5px;
+
+    .icon {
+      display: inline-flex;
+      width: 1.2em;
+      height: auto;
+      color: $body-color;
+    }
+
+    span {
+      color: $gray-600;
+    }
+  }
+}

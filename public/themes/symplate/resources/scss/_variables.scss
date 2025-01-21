@@ -1,0 +1,743 @@
+$base-path: '/themes/wordplate/admin';
+$images-path: '#{$base-path}/images/';
+
+//
+// Colors
+
+$white:    #fff;
+$gray-100: #f6f7f8;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+);
+
+$blue:     #0d6efd;
+$indigo:   #6610f2;
+$purple:   #6f42c1;
+$pink:     #d63384;
+$red:      #dc3545;
+$orange:   #fd7e14;
+$yellow:   #ffc107;
+$green:    #198754;
+$teal:     #20c997;
+$cyan:     #0dcaf0;
+
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "black":      $black,
+  "white":      $white
+);
+
+$min-contrast-ratio:       2;
+$color-contrast-dark:      $black;
+$color-contrast-light:     $white;
+
+$primary:       tint-color(#256fdb, 2%);
+$secondary:     $gray-700;
+$info:          #256fdb;
+$success:       $green;
+$warning:       #ffa417;
+$danger:         $red;
+$error:         $red;
+$light:         $gray-100;
+$gray:          $gray-700;
+// $dark:          #252c31;
+$dark:          #1d2327;
+
+$theme-colors: (
+  "primary":    $primary,
+  "info":       $info,
+  "success":    $success,
+  "warning":    $warning,
+  "danger":     $danger,
+  "error":      $error,
+  "light":      $light,
+  "gray":       $gray,
+  "dark":       $dark,
+);
+
+
+//
+// Characters which are escaped by the escape-svg function
+
+$escaped-characters: (
+  ("<", "%3c"),
+  (">", "%3e"),
+  ("#", "%23"),
+  ("(", "%28"),
+  (")", "%29"),
+);
+
+
+//
+// Options
+
+$enable-caret:                false;
+$enable-rounded:              true;
+$enable-shadows:              true;
+$enable-transitions:          true;
+$enable-reduced-motion:       true;
+$enable-smooth-scroll:        true;
+$enable-grid-classes:         true;
+$enable-rfs:                  false;
+$enable-negative-margins:     true;
+$enable-important-utilities:  true;
+
+
+// 
+// Prefix for :root CSS variables
+
+$prefix:                      neo-;
+
+
+//
+// Spacing
+
+$spacer:  1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25, // 4px
+  2: $spacer * 0.5, // 8px
+  3: $spacer * 0.75, // 12px
+  4: $spacer * 1, // 16px
+  5: $spacer * 1.25, // 20px
+  6: $spacer * 1.5, // 24px
+  7: $spacer * 2, // 32px
+  8: $spacer * 2.5, // 40px
+);
+
+
+//
+// Position
+
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%
+);
+
+
+//
+// Body
+
+$body-color:                #212529;
+$body-bg:                   #f5f6f9;
+
+
+//
+// Links
+
+$link-color:                              shade-color(#256fdb, 6%);
+$link-decoration:                         underline;
+$link-shade-percentage:                   30%;
+$link-hover-color:                        shift-color($link-color, $link-shade-percentage);
+$link-hover-decoration:                   null;
+
+$stretched-link-pseudo-element:           after;
+$stretched-link-z-index:                  1;
+
+
+//
+// Paragraphs
+
+$paragraph-margin-bottom:   1rem;
+
+
+//
+// Grid breakpoints
+
+$grid-breakpoints: (
+  xs: 0,
+  wp-xs: 601px,
+  wp-mobile: 783px,
+  lg: 961px,
+  xl: 1200px
+);
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   wp-xs: 601px,
+//   md: 768px,
+//   wp-mobile: 783px,
+//   lg: 961px,
+//   xl: 1200px,
+//   xxl: 1400px
+// );
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+//
+// Grid columns
+
+$grid-columns:                12;
+$grid-gutter-width:           .75rem;
+$grid-gutter-width-mobile:    $grid-gutter-width;
+$grid-row-columns:            6;
+
+
+// 
+// Page Container (page-width)
+
+$page-width:                    1100px;
+$page-width-x:                  3.75rem;
+$page-width-x-mobile:           1.25rem;
+
+$grid-spacing:                  $grid-gutter-width;
+$grid-spacing-mobile:           $grid-gutter-width-mobile;
+
+
+//
+// Z-index master list
+
+$zindex-dropdown:                   1000;
+$zindex-sticky:                     1020;
+$zindex-fixed:                      1030;
+$zindex-modal-backdrop:             100000;
+$zindex-modal:                      100001;
+$zindex-tooltip:                    1080;
+
+$zindex-toolbar:                    100;
+$zindex-admin-header:               99;
+
+$zindex-levels: (
+  n1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3
+);
+
+
+//
+// Components
+
+$border-width:                1px;
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
+);
+$border-style:                solid;
+$border-color:                $gray-300;
+$border-color-translucent:    rgba($black, .1);
+
+$border-radius:               .375rem;
+$border-radius-sm:            .25rem;
+$border-radius-lg:            .5rem;
+$border-radius-xl:            1rem;
+$border-radius-circle:        50%;
+
+$box-shadow:                  0 .5rem 1rem rgba($black, .15);
+$box-shadow-sm:               0 .125rem .25rem rgba($black, .075);
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175);
+$box-shadow-inset:            inset 0 1px 2px rgba($black, .075);
+
+$component-active-color:      $white;
+$component-active-bg:         $primary;
+
+$focus-ring-width:            .125rem;
+$focus-ring-opacity:          .9;
+$focus-ring-color:            rgba($primary, $focus-ring-opacity);
+$focus-ring-blur:             0;
+$focus-ring-box-shadow:       0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
+
+$caret-width:                 .375em;
+$caret-vertical-align:        $caret-width * .85;
+$caret-spacing:               $caret-width * .85;
+
+$transition-base:             all .2s ease-in-out;
+$transition-short:            all .1s ease-in-out;
+$transition-long:             all .35s ease-in-out;
+$transition-fade:             opacity .15s linear;
+$transition-collapse:         height .35s ease;
+$transition-collapse-width:   width .35s ease;
+
+
+// 
+// Typography
+
+$font-family-base:            -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-code:            $font-family-monospace;
+
+$font-size-root:              null;
+$font-size-base:              .8125rem; // Assumes the browser default, typically `16px`
+$font-size-alt:               .875rem;
+$font-size-sm:                $font-size-base * .875;
+$font-size-lg:                $font-size-base * 1.25;
+$font-size-xl:                $font-size-base * 2;
+$font-size-xxl:               $font-size-base * 2.5;
+
+$font-sizes: (
+  base: $font-size-base,
+  alt:  $font-size-alt,
+  sm:   $font-size-sm,
+  lg:   $font-size-lg,
+  xl:   $font-size-xl,
+  xxl:   $font-size-xxl,
+);
+
+$font-weight-thin:               100;
+$font-weight-extralight:         200;
+$font-weight-light:              300;
+$font-weight-normal:             400;
+$font-weight-medium:             500;
+$font-weight-semibold:           600;
+$font-weight-bold:               700;
+$font-weight-extrabold:          800;
+$font-weight-black:              900;
+
+$line-height-sm:              1.25;
+$line-height-base:            1.5;
+$line-height-lg:              2;
+
+
+// 
+// Dropdown
+
+$dropdown-min-width:                10rem;
+$dropdown-max-width:                22rem;
+$dropdown-padding-x:                0;
+$dropdown-padding-y:                .5rem;
+$dropdown-spacer:                   .125rem;
+$dropdown-item-white-space:         normal;
+$dropdown-font-size:                $font-size-base;
+$dropdown-font-weight:              500;
+$dropdown-color:                    $body-color;
+$dropdown-bg:                       $white;
+$dropdown-border-color:             $border-color-translucent;
+$dropdown-border-radius:            $border-radius-sm;
+$dropdown-border-width:             $border-width;
+$dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width});
+$dropdown-divider-bg:               $dropdown-border-color;
+$dropdown-divider-margin-y:         .5rem;
+$dropdown-box-shadow:               $box-shadow-sm;
+
+$dropdown-link-color:               $body-color;
+
+$dropdown-link-hover-color:         $component-active-color;
+$dropdown-link-hover-bg:            $component-active-bg;
+
+$dropdown-link-active-color:        $component-active-color;
+$dropdown-link-active-bg:           $component-active-bg;
+
+$dropdown-link-disabled-color:      rgba($dropdown-link-color, .65);
+
+$dropdown-item-padding-y:           .45rem;
+$dropdown-item-padding-x:           1rem;
+
+$dropdown-item-padding-y-mobile:    .75rem;
+$dropdown-item-padding-x-mobile:    $dropdown-item-padding-x;
+
+$dropdown-header-font-size:         11px;
+$dropdown-header-font-weight:       600;
+$dropdown-header-text-transform:    uppercase;
+$dropdown-header-color:             $gray-600;
+$dropdown-header-padding-x:         $dropdown-item-padding-x;
+$dropdown-header-padding-y:         $dropdown-padding-y;
+
+
+// 
+// Modal
+
+$modal-inner-padding:               1.5rem;
+
+$modal-footer-margin-between:       .5rem;
+
+$modal-dialog-margin:               .75rem;
+$modal-dialog-margin-y-sm-up:       1.75rem;
+
+$modal-title-line-height:           $line-height-base;
+
+$modal-content-color:               null;
+$modal-content-bg:                  $white;
+$modal-content-border-color:        $border-color-translucent;
+$modal-content-border-width:        $border-width;
+$modal-content-border-radius:       $border-radius;
+$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width);
+$modal-content-box-shadow-xs:       $box-shadow-sm;
+$modal-content-box-shadow-sm-up:    $box-shadow;
+
+$modal-backdrop-bg:                 $gray-900;
+$modal-backdrop-opacity:            .45;
+
+$modal-header-border-color:         $border-color;
+$modal-header-border-width:         $modal-content-border-width;
+$modal-header-padding-y:            $modal-inner-padding;
+$modal-header-padding-x:            $modal-inner-padding;
+$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x; // Keep this for backwards compatibility
+
+$modal-footer-bg:                   null;
+$modal-footer-border-color:         $modal-header-border-color;
+$modal-footer-border-width:         $modal-header-border-width;
+
+$modal-sm:                          300px;
+$modal-md:                          500px;
+$modal-lg:                          800px;
+$modal-xl:                          1140px;
+
+$modal-fade-transform:              none;
+// $modal-fade-transform:              translate(0, -50px);
+$modal-show-transform:              none;
+$modal-transition:                  transform .3s ease-out;
+$modal-scale-transform:             none;
+// $modal-scale-transform:             scale(1.02);
+
+
+// 
+// Tooltip
+
+$tooltip-font-size:                 $font-size-sm;
+$tooltip-max-width:                 200px;
+$tooltip-color:                     $white;
+$tooltip-bg:                        $dark;
+$tooltip-border-radius:             $border-radius-sm;
+$tooltip-opacity:                   .9;
+$tooltip-padding-y:                 $spacer * .25;
+$tooltip-padding-x:                 $spacer * .5;
+$tooltip-margin:                    null; // TODO: remove this in v6
+
+$tooltip-arrow-width:               .8rem;
+$tooltip-arrow-height:              .4rem;
+
+
+// 
+// Badges
+
+$badge-font-size:                   .75em;
+$badge-font-weight:                 $font-weight-semibold;
+$badge-color:                       $white;
+$badge-padding-y:                   .45em;
+$badge-padding-x:                   .65em;
+$badge-border-radius:               $border-radius-sm;
+
+
+//
+// Spinners
+
+$spinner-width:           2rem;
+$spinner-height:          $spinner-width;
+$spinner-vertical-align:  -.125em;
+$spinner-border-width:    .25em;
+$spinner-animation-speed: .75s;
+
+$spinner-width-sm:        1rem;
+$spinner-height-sm:       $spinner-width-sm;
+$spinner-border-width-sm: .2em;
+
+
+//
+// Form Elments
+// ---------------------------------------------------- /
+
+$input-font-size:               14px;
+$input-font-size-mobile:        16px;
+
+$input-min-height:              30px;
+$input-min-height-mobile:       40px;
+
+$input-bg:                      $white;
+$input-color:                   $body-color;
+// $input-border-color:            shade-color($gray-400, 5%);
+$input-border-color:            #8c8f94;
+$input-border-width:            $border-width;
+$input-border-radius:           $border-radius;
+$input-box-shadow:              0 0 0 transparent;
+
+// $input-hover-border-color:      shade-color($input-border-color, 12%);
+
+$input-focus-border-color:      $primary;
+$input-focus-box-shadow:        0 0 0 1px $input-focus-border-color;
+$input-focus-outline:           2px solid transparent;
+
+
+// 
+// Textarea
+
+$textarea-min-height:           $input-min-height;
+$textarea-min-height-mobile:    35px;
+
+
+// 
+// Select
+
+$form-select-color:                         $input-color;
+$form-select-font-size:                     14px;
+$form-select-font-size-mobile:              16px;
+$form-select-line-height:                   2;
+$form-select-line-height-mobile:            1.625;
+
+$form-select-min-height:                    $input-min-height;
+$form-select-min-height-mobile:             $input-min-height-mobile;
+$form-select-max-width:                     none;
+// $form-select-max-width:                     25rem;
+$form-select-padding:                       0 24px 0 8px;
+$form-select-padding-mobile:                5px 24px 5px 8px;
+
+$form-select-bg-color:                      $input-bg;
+$form-select-icon-color:                    tint-color($form-select-color, 15%);
+$form-select-bg-url:                        url(escape-svg('data:image/svg+xml;charset=utf-8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M5 6l5 5 5-5 2 1-7 7-7-7 2-1z" fill="#{$form-select-icon-color}"/></svg>'));
+$form-select-bg-url-inverse:                url(escape-svg('data:image/svg+xml;charset=utf-8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d=" M 5 14 L 10 9 L 15 14 L 17 13 L 10 6 L 3 13 L 5 14 Z " fill="#{$form-select-icon-color}"/></svg>'));
+$form-select-bg-repeat:                     no-repeat;
+$form-select-bg-position:                   right 5px top 55%;
+$form-select-bg-size:                       16px;
+
+$form-select-border-color:                  $input-border-color;
+$form-select-border-width:                  $input-border-width;
+$form-select-border-radius:                 $input-border-radius;
+$form-select-box-shadow:                    none;
+
+$form-select-cursor:                        pointer;
+
+
+// 
+// Checkbox & Radio
+
+$form-check-width:                          1rem;
+$form-check-width-mobile:                   1.5625rem;
+$form-check-height:                         $form-check-width;
+$form-check-height-mobile:                  $form-check-width-mobile;
+$form-check-line-height:                    0;
+$form-check-cursor:                         pointer;
+$form-check-bg-color:                       $white;
+$form-check-border-color:                   #8c8f94;
+$form-check-border-width:                   1px;
+$form-check-box-shadow:                     none;
+$form-check-transition:                     border-color .07s ease-in-out;
+
+$form-check-input-margins:                  -1px 4px 0 0;
+$form-check-input-margins-mobile:           -2px 4px 0 0;
+$form-check-input-border-radius:            3px;
+$form-check-input-bg-url:                   url(escape-svg('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M14.83 4.89l1.34.94-5.81 8.38H9.02L5.78 9.67l1.34-1.25 2.57 2.4z" fill="#{$primary}"/></svg>'));
+
+$form-check-radio-margins:                  -1px 8px 0 0;
+$form-check-radio-margins-mobile:           -2px 8px 0 0;
+$form-check-radio-bg:                       $primary;
+$form-check-radio-border-radius:            50%;
+
+
+// 
+// Range
+
+$input-range-track-bg:                 $gray-200;
+$input-range-track-height:             .75rem;
+$input-range-track-border-radius:      .375rem;
+
+$input-range-thumb-bg:                 $primary;
+$input-range-thumb-width:              1.25rem;
+$input-range-thumb-height:             1.25rem;
+$input-range-thumb-border-radius:      .75rem;
+$input-range-thumb-focus-ring-color:   rgba($primary, .5);
+$input-range-thumb-focus-ring-width:   3px;
+$input-range-thumb-focus-ring-offset:  2px;
+
+
+// 
+// Buttons
+
+$button-padding-y:                         0;
+$button-padding-x:                         .75rem;
+$button-padding-y-mobile:                  0;
+$button-padding-x-mobile:                  1rem;
+
+$button-min-height:                        32px;
+$button-min-height-mobile:                 39px;
+
+$button-line-height:                       $line-height-base;
+
+$button-font-size:                         13px;
+$button-font-size-mobile:                  14px;
+$button-font-weight:                       400;
+$button-color:                             $white;
+$button-bg:                                $primary;
+$button-border-color:                      $button-bg;
+$button-border-width:                      $border-width;
+$button-border-style:                      $border-style;
+$button-border-radius:                     $border-radius-sm;
+
+$button-hover-color:                       $button-color;
+$button-hover-bg:                          shade-color($primary, 12%);
+$button-hover-border-color:                $button-hover-bg;
+
+$button-secondary-bg:                      $light;
+$button-secondary-color:                   $link-color;
+$button-secondary-border-color:            tint-color($button-border-color, 10%);
+$button-secondary-hover-bg:                shade-color($button-secondary-bg, 2%);
+$button-secondary-hover-color:             $link-hover-color;
+$button-secondary-focus-shadow:            0 0 0 1px $button-secondary-border-color;
+
+$button-dark-bg:                           shade-color(#474f59, 40%);
+$button-dark-color:                        $white;
+$button-dark-border-color:                 $button-dark-bg;
+$button-dark-hover-bg:                     shade-color($button-dark-bg, 25%);
+$button-dark-hover-color:                  $button-dark-color;
+$button-dark-focus-shadow:                 0 0 0 1px $white,0 0 0 3px $button-dark-bg;
+
+$button-link-bg:                           transparent;
+$button-link-border-color:                 transparent;
+$button-link-color:                        $link-color;
+$button-link-decoration:                   $link-decoration;
+
+$button-link-hover-bg:                     transparent;
+$button-link-hover-border-color:           transparent;
+$button-link-hover-color:                  $link-hover-color;
+$button-link-hover-decoration:             $link-hover-decoration;
+
+$button-link-focus-shadow:                 0 0 0 2px $button-secondary-border-color;
+
+
+// 
+// Button Close
+
+$button-close-width:            1em;
+$button-close-height:           $button-close-width;
+$button-close-padding-x:        .25em;
+$button-close-padding-y:        $button-close-padding-x;
+$button-close-color:            $black;
+$button-close-bg:               url(escape-svg("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$button-close-color}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>"));
+$button-close-focus-shadow:     $focus-ring-box-shadow;
+$button-close-opacity:          .5;
+$button-close-hover-opacity:    .75;
+$button-close-focus-opacity:    1;
+$button-close-disabled-opacity: .25;
+$button-close-white-filter:     invert(1) grayscale(100%) brightness(200%);
+
+
+// 
+// Admin Menu
+
+$admin-menu-bg:                 $dark;
+
+
+// 
+// Neo Toolbar
+
+$toolbar-height:                60px;
+$toolbar-height-mobile:         50px;
+
+$toolbar-bg:                    #181d20;
+$toolbar-color:                 rgba($white, .6);
+
+$toolbar-heading-width:         160px;
+
+$toolbar-tab-font-size:             13px;
+$toolbar-tab-font-weight:           400;
+$toolbar-tab-line-height:           1.4;
+$toolbar-tab-letter-spacing:        .015rem;
+$toolbar-tab-text-transform:        none;
+
+$toolbar-tab-padding-y:         .45rem;
+$toolbar-tab-padding-x:         .75rem;
+$toolbar-tab-border-radius:     .325rem;
+$toolbar-tab-icon-width:        1rem;
+$toolbar-tab-icon-spacing:      .525rem;
+
+$toolbar-tab-bg:                transparent;
+$toolbar-tab-color:             rgba($white, .65);
+
+$toolbar-tab-hover-color:       $white;
+$toolbar-tab-hover-bg:          transparent;
+
+$toolbar-tab-active-color:      $white;
+$toolbar-tab-active-bg:         tint-color(#24292b, 2%);
+
+// 
+// Neo Header
+
+$admin-header-padding-y:              1rem;
+$admin-header-padding-x:              0;
+
+$admin-header-bg:                     $white;
+$admin-header-box-shadow:             0px 1px 2px rgba($gray-900, .1);
+
+$admin-header-sticky-bg:              $admin-header-bg;
+$admin-header-sticky-box-shadow:      0px 1px 4px rgba($gray-900, .15);
+
+$admin-header-icon-size:              1.45rem;
+$admin-header-icon-color:             rgba($body-color, .9);
+
+$admin-header-heading-color:          $body-color;
+$admin-header-heading-font-size:      16px;
+$admin-header-heading-font-weight:    600;
+
+
+// 
+// Neo Section
+
+$section-bg:                    $white;
+$section-border-width:          $border-width;
+$section-border-width:          0;
+$section-border-style:          solid;
+$section-border-color:          transparent;
+$section-border-radius:         .375rem;
+$section-box-shadow:            0 1px 2px rgba($black, .1);
+
+$section-spacing:               $grid-spacing;
+$section-spacing-mobile:        $grid-spacing-mobile;
+
+$section-padding:               .875rem 1rem;
+$section-padding-mobile:        $section-padding;
+
+$section-header-bg:             $section-bg;
+$section-header-border-bottom:  $border-width $border-style rgba($border-color, .6);
+$section-header-padding:        $section-padding;
+$section-header-padding-mobile: $section-padding-mobile;
+
+$section-header-heading-color:            $body-color;
+$section-header-heading-font-size:        14px;
+$section-header-heading-font-weight:      700;
+$section-header-heading-line-height:      1.3;
+$section-header-heading-text-transform:   none;
+
+$section-header-subtext-color:         $gray-600;
+$section-header-subtext-font-size:     13px;
+$section-header-subtext-font-weight:   400;
+$section-header-subtext-line-height:   1.5;
+
+
+// 
+// Admin Notice
+
+$notice-margin:                  0 0 $grid-spacing 0;
+$notice-margin-mobile:           0 0 $grid-spacing-mobile 0;
+$notice-padding-y:               .75rem;
+$notice-padding-x:               .75rem;
+$notice-link-font-weight:        600;
+$notice-bg:                      $white;
+$notice-border-width:            $border-width;
+$notice-border-left-width:       .375rem;
+$notice-border-color:            $border-color;
+$notice-border-radius:           $border-radius;
+$notice-box-shadow:              none;
+$notice-dismissible-padding-r:   $notice-padding-x * 3;

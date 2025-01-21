@@ -1,0 +1,57 @@
+.acf-field-code-editor {
+  .neo-code-editor,
+  neo-code-editor {
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    .neo-code-editor__placeholder {
+      display: none;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      padding-right: 20px;
+      line-height: 1.2em;
+      pointer-events: none;
+    }
+
+    .ace_editor {
+      display: block;
+      position: relative;
+      width: 100%;
+
+      &.ace_focus {
+        box-shadow: $acf-code-editor-focus-box-shadow;
+      }
+    }
+
+    &:not(&--dark) {
+      .neo-code-editor__placeholder {
+        opacity: .65;
+      }
+
+      .ace_editor {
+        @include border-start-radius($acf-code-editor-border-radius);
+      }
+    }
+
+    &--dark {
+      .neo-code-editor__placeholder {
+        color: $white;
+        opacity: .5;
+      }
+
+      .ace_editor {
+        @include border-radius($acf-code-editor-border-radius);
+      }
+    }
+  }
+}
+
+// admin
+.field-type-icon-code-editor {
+  &::before {
+    mask-image: url(escape-svg('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d=" M 10.475 15.403 L 10.475 16.878 L 1.09 12.757 L 1.09 11.8 L 10.475 7.122 L 10.475 8.577 L 2.838 12.2 L 10.475 15.403 Z  M 13.525 16.878 L 13.525 15.403 L 21.172 12.22 L 13.525 8.577 L 13.525 7.122 L 22.91 11.8 L 22.91 12.757 L 13.525 16.878 Z " fill="rgb(0,0,0)" vector-effect="non-scaling-stroke" stroke-width="0.5" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="3"/></svg>'));
+  }
+}

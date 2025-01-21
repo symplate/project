@@ -1,0 +1,25 @@
+.neo-page-tools {
+  neo-tools-export,
+  neo-tools-import {
+    display: block;
+  }
+
+  neo-tools-import {
+    input[type="file"].neo-input-file {
+      opacity: 0;
+      width: 0.1px;
+      height: 0.1px;
+      position: absolute;
+      overflow: hidden;
+      z-index: -1;
+
+      & + label {
+        
+      }
+
+      & + label + span {
+        
+      }
+    }
+  }
+}

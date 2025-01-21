@@ -8,10 +8,9 @@
 /public/plugins/*
 !/public/plugins/index.php
 
-/public/themes/*
-# /public/themes/*/assets
-# /public/themes/*/admin
-# /public/themes/*/node_modules
+/public/themes/*/assets
+/public/themes/*/admin
+/public/themes/*/node_modules
 
 /public/upgrade
 /public/uploads

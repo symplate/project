@@ -1,0 +1,140 @@
+.color-scheme-group-wrapper {
+  .color-scheme-group__header {
+    margin-bottom: 1.5rem;
+
+    .color-scheme-group__header-heading {
+      margin: 0 0 .5rem;
+      cursor: default;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
+      color: $gray-800;
+    }
+
+    .color-scheme-group__header-text {
+      margin: 0;
+      padding: 0;
+      color: $gray-600;
+    }
+  }
+
+  .color-scheme-group__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: .5rem;
+  }
+}
+
+.acf-field-repeater[data-name="color_scheme_group"] {
+  padding: 1.5rem;
+
+  @include media-breakpoint-up(wp-mobile) {
+    padding: 2rem;
+  }
+
+  color-scheme-group {
+    display: block;
+    position: relative;
+  }
+
+  table.acf-table {
+    margin-bottom: 0 !important;
+
+    & + .acf-actions {
+      display: none !important;
+    }
+
+    // To fix: acf repeater add a .625rem border when add-row clicked
+    //  ???????????????
+    & > tbody tr.acf-divider:not(:first-child) > td {
+      border: 0;
+    }
+
+    &,
+    & > tbody,
+    & > tbody > tr,
+    & > tbody > tr > td {
+      display: block;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: none;
+    }
+
+    & > tbody {
+      display: flex;
+      flex-flow: row wrap;
+      column-gap: .625rem;
+      row-gap: .625rem;
+
+      & > tr {
+        flex: 0 1 calc(50% - .625rem) !important;
+        position: relative;
+        display: flex;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        // padding: .375rem .75rem .375rem 0;
+        background-color: $white;
+        border: .0625rem solid $border-color;
+        @include border-radius();
+
+        @include media-breakpoint-down(wp-mobile) {
+          flex: 0 1 100% !important;
+        }
+
+        &.ui-sortable-helper {
+          opacity: .9 !important;
+          box-shadow: none !important;
+        }
+
+        &.ui-sortable-placeholder {
+          background-color: $light !important;
+          border: .125rem dashed $primary !important;
+          box-shadow: none !important;
+        }
+
+        & > td.acf-fields {
+          // set as important because acf add inline style width (?)
+          width: 100% !important;
+        }
+
+        // &:hover > td.acf-row-handle {
+        //   opacity: 1;
+        // }
+
+        &.acf-row:first-child .color-scheme-header__controls-button--remove {
+          display: none !important;
+        }
+
+        & > td.acf-row-handle {
+          pointer-events: none !important;
+          box-sizing: border-box;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 20;
+          width: 2.5rem !important;
+          height: 2.5rem !important;
+          cursor: grab;
+          opacity: .85;
+          text-shadow: none;
+          background-color: transparent;
+          background-size: .875rem;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url(escape-svg('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d=" M 7.3 1.7 C 7.3 2.473 6.673 3.1 5.9 3.1 C 5.127 3.1 4.5 2.473 4.5 1.7 C 4.5 0.927 5.127 0.3 5.9 0.3 C 6.673 0.3 7.3 0.927 7.3 1.7 Z  M 11.5 1.7 C 11.5 2.473 10.873 3.1 10.1 3.1 C 9.327 3.1 8.7 2.473 8.7 1.7 C 8.7 0.927 9.327 0.3 10.1 0.3 C 10.873 0.3 11.5 0.927 11.5 1.7 Z  M 7.3 5.9 C 7.3 6.673 6.673 7.3 5.9 7.3 C 5.127 7.3 4.5 6.673 4.5 5.9 C 4.5 5.127 5.127 4.5 5.9 4.5 C 6.673 4.5 7.3 5.127 7.3 5.9 Z  M 11.5 5.9 C 11.5 6.673 10.873 7.3 10.1 7.3 C 9.327 7.3 8.7 6.673 8.7 5.9 C 8.7 5.127 9.327 4.5 10.1 4.5 C 10.873 4.5 11.5 5.127 11.5 5.9 Z  M 7.3 10.1 C 7.3 10.873 6.673 11.5 5.9 11.5 C 5.127 11.5 4.5 10.873 4.5 10.1 C 4.5 9.327 5.127 8.7 5.9 8.7 C 6.673 8.7 7.3 9.327 7.3 10.1 Z  M 11.5 10.1 C 11.5 10.873 10.873 11.5 10.1 11.5 C 9.327 11.5 8.7 10.873 8.7 10.1 C 8.7 9.327 9.327 8.7 10.1 8.7 C 10.873 8.7 11.5 9.327 11.5 10.1 Z  M 7.3 14.3 C 7.3 15.073 6.673 15.7 5.9 15.7 C 5.127 15.7 4.5 15.073 4.5 14.3 C 4.5 13.527 5.127 12.9 5.9 12.9 C 6.673 12.9 7.3 13.527 7.3 14.3 Z  M 11.5 14.3 C 11.5 15.073 10.873 15.7 10.1 15.7 C 9.327 15.7 8.7 15.073 8.7 14.3 C 8.7 13.527 9.327 12.9 10.1 12.9 C 10.873 12.9 11.5 13.527 11.5 14.3 Z" fill="#{$body-color}"/></svg>'));
+          @include border-top-start-radius();
+
+          & > * {
+            display: none !important;
+          }
+
+          &:not(.order) {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+}

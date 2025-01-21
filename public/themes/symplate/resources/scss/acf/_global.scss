@@ -1,0 +1,125 @@
+//
+// Global Style
+//
+
+// 
+// Fix acf tab overflow
+
+.acf-fields > .acf-tab-wrap {
+  overflow: unset; // must check that !
+}
+
+
+//
+// Hide field label
+
+.acf-field {
+
+  &--static {
+    position: static !important;
+  }
+
+  &--hidden {
+    display: none !important;
+  }
+
+  &--label-hidden > .acf-label {
+    display: none !important;
+  }
+}
+
+
+//
+// Field Widths
+
+.acf-field {
+  max-width: 100%;
+
+  @include media-breakpoint-up(wp-mobile) {
+    &--width-small > .acf-input {
+      max-width: 15rem !important;
+    }
+
+    &--width-medium > .acf-input {
+      max-width: 20rem !important;
+    }
+
+    &--width-large > .acf-input {
+      max-width: 36rem !important;
+    }
+  }
+}
+
+
+// 
+// WYSIWYG editor
+
+.neo-wysiwyg-editor { // TinyMCE 4.9.11
+
+  .quicktags-toolbar {
+    border-bottom: $border-width solid $border-color;
+    background-color: tint-color($light, 40%);
+  }
+
+  .wp-editor-wrap {
+
+    .wp-switch-editor {
+      border-color: $border-color;
+      background-color: tint-color($light, 40%);
+    }
+
+    &.tmce-active .switch-tmce,
+    &.html-active .switch-html {
+      border-bottom-color: tint-color($light, 40%);
+    }
+
+    &:not(.tmce-active) .switch-tmce,
+    &:not(.html-active) .switch-html {
+      background-color: $white;
+    }
+
+    .wp-editor-tools {
+      .wp-media-buttons {
+        button {
+          margin: 0;
+          padding-left: 8px;
+          padding-right: 8px;
+
+          & > span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .acf-editor-wrap .wp-editor-container {
+    border: $border-width solid $border-color;
+    box-shadow: none !important;
+    // @include border-radius();
+
+    & > .mce-tinymce.mce-container.mce-panel {
+      // @include border-radius();
+    }
+  }
+
+  .mce-top-part::before {
+    display: none;
+  }
+
+  .mce-top-part + .mce-edit-area,
+  .mce-top-part + .mce-edit-area > iframe {
+    // @include border-bottom-radius();
+  }
+
+  .mce-toolbar-grp {
+    border-bottom: $border-width solid $border-color;
+    background-color: tint-color($light, 40%);
+    // @include border-top-radius();
+  }
+
+  .mce-toolbar .mce-btn-group .mce-btn.mce-listbox {
+    box-shadow: none;
+    // @include border-radius(2px);
+  }
+}

@@ -1,0 +1,234 @@
+// 
+// Neo Toolbar
+
+.neo-toolbar {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: $zindex-toolbar;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--wp-admin--admin-bar--height);
+  color: $toolbar-color;
+  background-color: $toolbar-bg;
+  box-shadow: 0 0 .5rem .0625rem rgba($black, .5);
+  user-select: none;
+
+  > .neo-page-width,
+  > .neo-page-width > .neo-toolbar__inner {
+    height: 100%;
+  }
+}
+
+.neo-toolbar__inner {
+  display: flex;
+  align-items: center;
+}
+
+@include media-breakpoint-down(wp-mobile) {
+  .neo-toolbar__inner {
+    display: grid;
+    grid-template-areas: 'left-icons heading icons';
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .neo-toolbar__hamburger {
+    grid-area: left-icons;
+    justify-self: start;
+  }
+
+  .neo-toolbar__heading {
+    grid-area: heading;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .neo-toolbar__account {
+    grid-area: icons;
+    justify-self: end;
+  }
+}
+
+.neo-toolbar__heading {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
+
+  @include media-breakpoint-up(wp-mobile) {
+    width: $toolbar-heading-width;
+  }
+}
+
+.neo-toolbar__heading-link {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+  outline: none !important;
+  box-shadow: none !important;
+
+  img.neo-toolbar__heading-logo {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: 18px;
+    min-height: 18px;
+    margin: 0;
+    border: 0;
+  }
+}
+
+.neo-toolbar__nav {
+  display: none;
+  flex-grow: 1;
+
+  @include media-breakpoint-up(wp-mobile) {
+    display: block;
+  }
+}
+
+.neo-toolbar__menu {
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  @include list-unstyled();
+}
+
+.neo-toolbar__menu > .neo-toolbar__item {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+.neo-toolbar__menu > .neo-toolbar__item > .neo-toolbar__link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: .5rem;
+  padding: $toolbar-tab-padding-y $toolbar-tab-padding-x;
+  box-sizing: border-box;
+  border: none;
+  border-radius: $toolbar-tab-border-radius;
+  color: $toolbar-tab-color;
+  background-color: $toolbar-tab-bg;
+  text-align: center;
+  text-decoration: none;
+  text-transform: $toolbar-tab-text-transform;
+  font-size: $toolbar-tab-font-size;
+  font-weight: $toolbar-tab-font-weight;
+  letter-spacing: $toolbar-tab-letter-spacing;
+  line-height: $toolbar-tab-line-height;
+  white-space: nowrap;
+  outline: 0;
+  box-shadow: none;
+
+  &:hover:not(&.is-active) {
+    color: $toolbar-tab-hover-color;
+    background-color: $toolbar-tab-hover-bg;
+  }
+
+  &.is-active {
+    color: $toolbar-tab-active-color;
+    background-color: $toolbar-tab-active-bg;
+  }
+}
+
+.neo-toolbar__submenu .neo-toolbar__link.is-active {
+  color: $toolbar-tab-active-color;
+}
+
+// Toolbar Dropdowns
+.neo-toolbar .dropdown {
+  .dropdown-toggle {
+
+    .icon-dropdown-caret {
+      width: .875rem;
+      height: auto;
+    }
+
+    &.show,
+    &.show:hover {
+      color: $toolbar-tab-active-color;
+    }
+
+    &.show .icon-dropdown-caret {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .dropdown-menu {
+    --#{$prefix}dropdown-min-width: 12.5rem;
+    --#{$prefix}dropdown-padding-x: 0;
+    --#{$prefix}dropdown-padding-y: .5rem;
+    --#{$prefix}dropdown-bg: #{$toolbar-bg};
+    --#{$prefix}dropdown-border-color: #{$dropdown-border-color};
+    --#{$prefix}dropdown-border-width: 0;
+    --#{$prefix}dropdown-border-radius: 0;
+    --#{$prefix}dropdown-inner-border-radius: 0;
+    --#{$prefix}dropdown-link-color: #{$toolbar-tab-color};
+    --#{$prefix}dropdown-link-hover-color: #{$dropdown-link-hover-color};
+    --#{$prefix}dropdown-link-hover-bg: #{tint-color($dark, 8%)};
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      column-gap: .5rem;
+    }
+  }
+}
+
+// #wp-admin-bar-menu-toggle
+.neo-toolbar__hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: $toolbar-tab-color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $toolbar-tab-hover-color;
+  }
+
+  .icon {
+    width: 2rem;
+  }
+
+  @include media-breakpoint-up(wp-mobile) {
+    display: none;
+  }
+}
+
+.neo-toolbar__account {
+  .dropdown-toggle {
+    .icon-account {
+      width: 1.5rem;
+    }
+
+    @include media-breakpoint-up(wp-mobile) {
+      .icon-account {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-down(wp-mobile) {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      background-color: transparent !important;
+
+      > *:not(.icon-account) {
+        display: none;
+      }
+    }
+  }
+}

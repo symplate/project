@@ -1,0 +1,17 @@
+.acf-field.acf-field-range {
+  .acf-range-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0;
+
+    input[type="number"] {
+      width: 52px !important;
+      min-width: unset;
+    }
+
+    input[type="range"] {
+      max-width: 260px;
+    }
+  }
+}

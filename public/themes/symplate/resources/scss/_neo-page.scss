@@ -1,0 +1,60 @@
+body.neo-page {
+  @include media-breakpoint-down(wp-mobile) {
+    .wp-responsive-open #wpbody {
+      right: -11.875rem;
+    }
+  }
+}
+
+.notice + .neo-page-wrapper {
+  margin-top: calc(.375rem + var(--wp-admin--admin-bar--height));
+}
+
+.neo-page-wrapper {
+  margin-left: -20px;
+
+  @include media-breakpoint-down(wp-mobile) {
+    margin-left: -10px;
+  }
+
+  &--full-width {
+    .neo-page-width {
+      --#{$prefix}page-width: 100%;
+    }
+  }
+}
+
+.neo-page-width {
+  --#{$prefix}page-width: #{$page-width};
+  --#{$prefix}gutter-x: #{$page-width-x};
+  --#{$prefix}gutter-y: 0;
+
+  @include media-breakpoint-down(wp-mobile) {
+    --#{$prefix}gutter-x: #{$page-width-x-mobile};
+  }
+
+  width: 100%;
+  max-width: var(--#{$prefix}page-width);
+  padding-right: calc(var(--#{$prefix}gutter-x) * .5);
+  padding-left: calc(var(--#{$prefix}gutter-x) * .5);
+  box-sizing: border-box;
+  margin: 0;
+
+  &--fluid {
+    --#{$prefix}page-width: 100%;
+  }
+
+  & > .row {
+    --#{$prefix}gutter-y: #{$grid-spacing};
+
+    @include media-breakpoint-down(wp-mobile) {
+      --#{$prefix}gutter-y: #{$grid-spacing-mobile};
+    }
+  }
+
+  & > .row,
+  & > .row > .col,
+  & > .row > [class^="col-"] {
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,14 @@
+.acf-fields > .acf-field.acf-field-group {
+  &--clean-style {
+    padding: 0;
+    margin-bottom: 0;
+
+    & > .acf-label {
+      display: none;
+    }
+
+    & > .acf-input > .acf-fields {
+      border: 0;
+    }
+  }
+}

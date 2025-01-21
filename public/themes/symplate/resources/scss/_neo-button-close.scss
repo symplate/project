@@ -1,0 +1,31 @@
+.neo-button-close {
+  box-sizing: content-box;
+  width: $button-close-width;
+  height: $button-close-height;
+  padding: $button-close-padding-y $button-close-padding-x;
+  color: $button-close-color;
+  background: transparent $button-close-bg center / $button-close-width auto no-repeat;
+  border: 0;
+  @include border-radius();
+  opacity: $button-close-opacity;
+
+  // Override <a>'s hover style
+  &:hover {
+    color: $button-close-color;
+    text-decoration: none;
+    opacity: $button-close-hover-opacity;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: $button-close-focus-shadow;
+    opacity: $button-close-focus-opacity;
+  }
+
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    user-select: none;
+    opacity: $button-close-disabled-opacity;
+  }
+}

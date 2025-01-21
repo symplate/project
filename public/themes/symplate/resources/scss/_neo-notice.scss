@@ -1,0 +1,100 @@
+neo-notice,
+.neo-notice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin: $notice-margin;
+  padding: $notice-padding-y $notice-padding-x;
+  background: $notice-bg;
+  border: $notice-border-width solid $notice-border-color;
+  border-left-width: $notice-border-left-width;
+  box-shadow: $notice-box-shadow;
+  color: inherit;
+  @include border-radius($notice-border-radius);
+
+  @include media-breakpoint-down(wp-mobile) {
+    margin: $notice-margin-mobile;
+  }
+
+  &.is-closing {
+    opacity: 0;
+    @include transition(opacity 200ms ease-in-out);
+  }
+
+  .neo-notice__icon-type {
+    flex-shrink: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 8px;
+    @include border-radius(50%);
+
+    .icon {
+      width: 1rem;
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .neo-notice__message {
+    flex-grow: 1;
+    font-size: 13px;
+
+    & * {
+      line-height: 1.4;
+    }
+
+    a {
+      font-weight: $notice-link-font-weight;
+      color: inherit;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+
+      & + p {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  @each $state, $color in $theme-colors {
+    &--#{$state} {
+      border-left-color: $color;
+
+      .neo-notice__icon-type {
+        color: color-contrast($color, $min-contrast-ratio: 1);
+        background-color: $color;
+      }
+
+      .neo-notice__message {
+        a {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  &--dismissible {
+    padding-right: $notice-dismissible-padding-r;
+
+    .neo-button-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: calc($button-close-height - ($notice-border-width * 2));
+      z-index: $stretched-link-z-index + 1;
+      padding: ($notice-padding-y * 1.25) ($notice-padding-x + ($notice-border-left-width * .5));
+      @include border-radius($notice-border-radius);
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.acf-field-true-false {
+  .acf-switch {
+    .acf-switch-slider {
+      @include border-radius(3px);
+    }
+
+    &:hover,
+    &:hover .acf-switch-slider,
+    &:active,
+    &:active .acf-switch-slider,
+    &:focus,
+    &.-focus,
+    &.-focus .acf-switch-slider {
+      border-color: $button-secondary-border-color;
+    }
+
+    &.-on {
+      background-color: $button-bg;
+      border-color: $button-bg;
+
+      .acf-switch-on {
+        text-shadow: none;
+      }
+
+      .acf-switch-slider {
+        border-color: transparent;
+      }
+    }
+
+    &:not(.-on) {
+      background-color: $button-secondary-bg;
+
+      &:hover,
+      &:focus,
+      &.-focus {
+        background-color: $button-secondary-hover-bg;
+
+        .acf-switch-off {
+          color: $button-secondary-hover-color;
+        }
+      }
+    }
+  }
+
+  $colors: (
+    "success":    $success,
+    "warning":    $warning,
+    "danger":     $danger
+  );
+
+  // add modifiers
+  @each $color, $value in $colors {
+    &--#{$color} {
+      .acf-switch.-on,
+      .acf-switch.-on:hover,
+      .acf-switch.-on.-focus {
+        border-color: shade-color($value, 15%);
+        background: $value;
+
+        .acf-switch-slider {
+          border-color: shade-color($value, 15%);
+        }
+      }
+      .acf-switch .acf-switch-on {
+        color: if($color != light, $white, $black);
+        text-shadow: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@each $color, $value in $theme-colors {
+  .text-#{$color} {
+    color: $value !important;
+  }
+}
+
+.text-white {
+  color: $white !important;
+}
+
+.text-muted {
+  color: $gray-600 !important;
+}

@@ -1,0 +1,69 @@
+.neo-section {
+
+  & + .neo-section {
+    margin-top: $section-spacing-mobile;
+
+    @include media-breakpoint-up(wp-mobile) {
+      margin-top: $section-spacing;
+    }
+  }
+
+  padding: 0;
+  background-color: $section-bg;
+  border: $section-border-width $section-border-style $section-border-color;
+  box-shadow: $section-box-shadow;
+  @include border-radius($section-border-radius);
+}
+
+.neo-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: .5rem;
+  padding: $section-header-padding;
+  background-color: $section-header-bg;
+  border-bottom: $section-header-border-bottom;
+  @include border-top-radius($section-border-radius);
+
+  @include media-breakpoint-down(wp-mobile) {
+    padding: $section-header-padding-mobile;
+  }
+
+  .neo-section__headings {
+
+    & > * {
+      margin: 0;
+
+      & + * {
+        margin-top: .25rem;
+      }
+    }
+
+    .neo-section__headings-heading {
+      line-height: $section-header-heading-line-height;
+      font-size: $section-header-heading-font-size;
+      font-weight: $section-header-heading-font-weight;
+      color: $section-header-heading-color;
+      text-transform: $section-header-heading-text-transform;
+    }
+
+    .neo-section__headings-text {
+      line-height: $section-header-subtext-line-height;
+      font-size: $section-header-subtext-font-size;
+      font-weight: $section-header-subtext-font-weight;
+      color: $section-header-subtext-color;
+    }
+  }
+
+  .neo-section__end {
+
+  }
+}
+
+.neo-section__body {
+  padding: $section-padding;
+
+  @include media-breakpoint-down(wp-mobile) {
+    padding: $section-padding-mobile;
+  }
+}

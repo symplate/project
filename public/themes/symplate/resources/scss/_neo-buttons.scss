@@ -1,0 +1,168 @@
+// Buttons
+//
+
+.neo-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: auto;
+  min-height: $button-min-height-mobile;
+  padding: $button-padding-y-mobile $button-padding-x-mobile;
+  line-height: $button-line-height;
+  font-size: $button-font-size-mobile;
+  font-weight: $button-font-weight;
+  color: $button-color;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  background-color: $button-bg;
+  border: $button-border-width $button-border-style $button-border-color;
+  @include border-radius($button-border-radius);
+
+  @include media-breakpoint-up(wp-mobile) {
+    min-width: 4.5rem;
+    min-height: $button-min-height;
+    padding: $button-padding-y $button-padding-x;
+    font-size: $button-font-size;
+  }
+
+  &--small {
+    @include media-breakpoint-up(wp-mobile) {
+      min-width: auto;
+      min-height: 26px;
+      padding: 0 8px;
+      font-size: 11px;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &.dropdown-toggle.show {
+    color: $button-hover-color;
+    background-color: $button-hover-bg;
+    border-color: $button-hover-border-color;
+  }
+
+  &:focus:not(&--link):not(&--secondary),
+  &:focus-visible,
+  &.dropdown-toggle.show {
+    outline: 2px solid transparent;
+    outline-offset: 0;
+    box-shadow: 0 0 0 1px $white,0 0 0 3px $button-bg;
+  }
+
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    opacity: .75;
+  }
+
+  &--secondary {
+    color: $button-secondary-color;
+    background-color: $button-secondary-bg;
+    border-color: $button-secondary-border-color;
+
+    &:hover,
+    &:active,
+    &.dropdown-toggle.show {
+      color: $button-secondary-hover-color;
+      background-color: $button-secondary-hover-bg;
+      border-color: $button-secondary-border-color;
+    }
+
+    &:focus,
+    &:focus-visible,
+    &.dropdown-toggle.show {
+      box-shadow: $button-secondary-focus-shadow;
+    }
+  }
+
+  &--dark {
+    color: $button-dark-color;
+    background-color: $button-dark-bg;
+    border-color: $button-dark-border-color;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-visible,
+    &.dropdown-toggle.show {
+      color: $button-dark-hover-color;
+      background-color: $button-dark-hover-bg;
+      border-color: $button-dark-border-color;
+    }
+
+    &:focus,
+    &:focus-visible,
+    &.dropdown-toggle.show {
+      box-shadow: $button-dark-focus-shadow;
+    }
+  }
+
+  &--link {
+    min-width: unset;
+    color: $button-link-color;
+    background-color: $button-link-bg;
+    border-color: $button-link-border-color;
+    text-decoration: $button-link-decoration;
+
+    &:hover,
+    &:active,
+    &.dropdown-toggle.show {
+      color: $button-link-hover-color;
+      background-color: $button-link-hover-bg;
+      border-color: $button-link-hover-border-color;
+      text-decoration: $button-link-hover-decoration;;
+    }
+
+    &:focus-visible,
+    &.dropdown-toggle.show {
+      box-shadow: $button-link-focus-shadow;
+    }
+  }
+
+  .neo-button__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    .spinner-border {
+      --#{$prefix}spinner-width: .75rem;
+      --#{$prefix}spinner-height: .75rem;
+      --#{$prefix}spinner-border-width: .2em;
+      --#{$prefix}spinner-animation-speed: .5s;
+
+      flex-shrink: 0;
+    }
+  }
+
+  &:not(&.loading) {
+    & > *:not(.neo-button__spinner) {
+      visibility: visible;
+    }
+
+    .neo-button__spinner {
+      display: none;
+    }
+  }
+
+  &.loading {
+    & > *:not(.neo-button__spinner) {
+      visibility: hidden;
+    }
+
+    .neo-button__spinner {
+      display: flex;
+    }
+  }
+}

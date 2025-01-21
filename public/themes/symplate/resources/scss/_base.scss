@@ -1,0 +1,252 @@
+:root {
+  @if $enable-smooth-scroll {
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+html {
+  button {
+    border-radius: 0;
+  }
+
+  button:focus:not(:focus-visible) {
+    outline: 0;
+  }
+
+  input,
+  button,
+  select,
+  optgroup,
+  textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  [role=button] {
+    cursor: pointer;
+  }
+
+  select {
+    word-wrap: normal;
+  }
+
+  select:disabled {
+    opacity: 1;
+  }
+
+  [list]:not([type=date]):not([type=datetime-local]):not([type=month]):not([type=week]):not([type=time])::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
+
+  button,
+  [type=button],
+  [type=reset],
+  [type=submit] {
+    appearance: button;
+  }
+  button:not(:disabled),
+  [type=button]:not(:disabled),
+  [type=reset]:not(:disabled),
+  [type=submit]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+body {
+  // background-color: $body-bg;
+}
+
+.icon-wrap {
+  --#{$prefix}icon-width : 1rem;
+  --#{$prefix}icon-height : auto;
+
+  .icon {
+    width: var(--#{$prefix}icon-width);
+    height: var(--#{$prefix}icon-height);
+  }
+}
+
+.icon {
+  height: auto;
+  flex-shrink: 0;
+}
+
+.bg-transparent-grid {
+  position: relative;
+
+  &::before {
+    background-image:
+      linear-gradient(45deg, $gray-400 25%, #0000 25%, #0000 75%, $gray-400 75%, $gray-400 100%),
+      linear-gradient(45deg, $gray-400 25%, #fff 25%, #fff 75%, $gray-400 75%, $gray-400 100%);
+    background-position: 0 0, .375rem .375rem;
+    background-size: .75rem .75rem;
+    border-radius: inherit;
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+// Chrome, Safari, Edge, Opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// Firefox
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+//
+// Range input
+
+// Baseline, reset styles
+input[type="range"] {
+  appearance: none;
+  background: transparent;
+  cursor: default;
+  width: 100%;
+}
+
+// Removes default focus
+input[type="range"]:focus {
+  outline: none;
+}
+
+// Chrome, Safari, Opera and Edge Chromium styles
+// slider track
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: $input-range-track-bg;
+  border-radius: $input-range-track-border-radius;
+  height: $input-range-track-height;
+}
+
+// slider thumb
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  // margin-top: -4px; // Centers thumb on the track
+  background-color: $input-range-thumb-bg;
+  border-radius: $input-range-thumb-border-radius;
+  width: $input-range-thumb-width;
+  height: $input-range-thumb-height;
+  cursor: pointer;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline: $input-range-thumb-focus-ring-width solid $input-range-thumb-focus-ring-color;
+  outline-offset: $input-range-thumb-focus-ring-offset;
+}
+
+// Firefox styles
+// slider track
+input[type="range"]::-moz-range-track {
+  background-color: $input-range-track-bg;
+  border-radius: $input-range-track-border-radius;
+  height: $input-range-track-height;
+}
+
+// slider thumb
+input[type="range"]::-moz-range-thumb {
+  background-color: $input-range-thumb-bg;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: $input-range-thumb-border-radius;
+  width: $input-range-thumb-width;
+  height: $input-range-thumb-height;
+  cursor: pointer;
+}
+
+input[type="range"]:focus::-moz-range-thumb{
+  outline: $input-range-thumb-focus-ring-width solid $input-range-thumb-focus-ring-color;
+  outline-offset: $input-range-thumb-focus-ring-offset;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#adminmenu,
+#adminmenuback,
+#adminmenuwrap {
+  
+}
+
+#adminmenuwrap {
+  #adminmenu {
+    margin-top: 0;
+
+    li.wp-first-item.wp-menu-separator {
+      display: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

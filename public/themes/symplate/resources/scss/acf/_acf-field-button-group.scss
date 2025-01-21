@@ -1,0 +1,19 @@
+.acf-button-group {
+  label {
+    padding: 6px 13px;
+
+    &:hover {
+      background: $button-secondary-hover-bg;
+      border-color: $button-secondary-border-color;
+      color: $button-secondary-hover-color;
+      z-index: 2;
+    }
+
+    &.selected {
+      border-color: $button-border-color;
+      background: $button-bg;
+      color: $button-color;
+      z-index: 2;
+    }
+  }
+}

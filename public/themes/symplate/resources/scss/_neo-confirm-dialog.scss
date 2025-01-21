@@ -1,0 +1,31 @@
+.neo-confirm-dialog {
+  --#{$prefix}modal-width: 420px;
+
+  .modal-body {
+    padding: $modal-inner-padding;
+  }
+
+  .neo-confirm-dialog__heading,
+  .neo-confirm-dialog__message,
+  .neo-confirm-dialog__buttons {
+    text-align: center;
+  }
+
+  .neo-confirm-dialog__heading {
+    margin: 0 0 .5rem;
+    font-size: $font-size-lg;
+    font-weight: 600;
+  }
+
+  .neo-confirm-dialog__message {
+    margin: 0;
+  }
+
+  .neo-confirm-dialog__buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .5rem;
+  }
+}

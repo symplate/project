@@ -1,0 +1,5 @@
+.acf-field-repeater--no-thead {
+  > .acf-input > .acf-repeater > table > thead {
+    display: none !important;
+  }
+}
