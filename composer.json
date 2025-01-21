@@ -9,8 +9,7 @@
         "composer/installers": "^2.3",
         "roots/bedrock-autoloader": "^1.0.4",
         "roots/wordpress": "^6.7",
-        "roots/wp-password-bcrypt": "^1.2",
-        "symplate/framework": "dev-dev"
+        "roots/wp-password-bcrypt": "^1.2"
     },
     "require-dev": {
         "symfony/var-dumper": "^7.2"
@@ -23,6 +22,13 @@
                 "wpackagist-plugin/*",
                 "wpackagist-theme/*"
             ]
+        },
+        {
+            "type": "path",
+            "url": "/Users/me/Sites/Lab/symplate/framework",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "autoload": {
