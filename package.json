@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "path": "^0.12.7",
+    "postcss": "^8.4.38",
+    "vite": "^5.0.12"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "fs": "^0.0.1-security",
+    "sass": "^1.72.0",
+    "vite-plugin-manifest": "^0.0.1"
+  }
+}
