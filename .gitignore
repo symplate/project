@@ -1,16 +1,13 @@
-.DS_Store
-.env
 /node_modules
 /storage/logs/*
 /storage/views/*
-/public/debug.log
-/public/languages
+# /public/debug.log
+# /public/languages
 /public/mu-plugins/*
 !/public/mu-plugins/mu-plugins.php
 /public/plugins/*
 !/public/plugins/index.php
 
-/resources/*
 /public/themes/*
 # /public/themes/*/assets
 # /public/themes/*/admin
@@ -19,5 +16,10 @@
 /public/upgrade
 /public/uploads
 /public/wp
-/vendor
+
+/vendor/*
+!/vendor/symplate
+
+.env
+.DS_Store
 auth.json
