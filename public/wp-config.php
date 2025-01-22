@@ -6,18 +6,10 @@ define('APP_START', microtime(true));
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// use Dotenv\Dotenv;
-// use Illuminate\Http\Request;
-
-// // Load the environment variables.
-// Dotenv::createImmutable(realpath(__DIR__ . '/../'))->safeLoad();
-
-// // Capture the current HTTP request based on global server variables.
-// $request = Request::capture();
-
 // Boot application.
 $app = (require __DIR__.'/../bootstrap/app.php');
 
+dump($app->getNamespace());
 dump($app);
 
 exit;
