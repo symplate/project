@@ -9,7 +9,6 @@ require __DIR__ . '/../vendor/autoload.php';
 // Boot application.
 $app = (require __DIR__.'/../bootstrap/app.php');
 
-dump($app->getNamespace());
 dump($app);
 
 exit;

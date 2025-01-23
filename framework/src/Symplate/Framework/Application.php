@@ -4,11 +4,10 @@ namespace Symplate\Framework;
 
 use RuntimeException;
 use Composer\Autoload\ClassLoader;
-use Illuminate\Support\Collection;
 
 use Symplate\Support\Traits\Singleton;
 
-use function Symplate\Filesystem\join_paths;
+use function Illuminate\Filesystem\join_paths;
 
 class Application
 {
@@ -116,10 +115,6 @@ class Application
         if ($basePath) {
             $this->setBasePath($basePath);
         }
-
-        dump(new Collection([
-            'foo' => 'Bar',
-        ]));
 
         return $this;
     }

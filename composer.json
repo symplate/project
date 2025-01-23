@@ -7,6 +7,10 @@
     "require": {
         "php": "^8.2",
         "composer/installers": "^2.3",
+        "illuminate/collections": "^11.39",
+        "illuminate/config": "^11.39",
+        "illuminate/filesystem": "^11.39",
+        "illuminate/support": "^11.39",
         "roots/bedrock-autoloader": "^1.0.4",
         "roots/wordpress": "^6.7",
         "roots/wp-password-bcrypt": "^1.2"
@@ -26,8 +30,6 @@
     ],
     "autoload": {
         "files": [
-            "framework/src/Symplate/Framework/helpers.php",
-            "framework/src/Symplate/Filesystem/functions.php"
         ],
         "psr-4": {
             "App\\": "app/",
